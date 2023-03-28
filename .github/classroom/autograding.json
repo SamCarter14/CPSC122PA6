@@ -1,0 +1,52 @@
+{
+  "tests": [
+    {
+      "name": "Compile code",
+      "run": "mkdir build; cd build; cmake ..; make;",
+      "timeout": 5,
+      "points": 0
+    },
+    {
+      "name": "Test1_Song_SongLibrary.copyConstructors",
+      "run": "cd build; ./test/runTests --gtest_filter=Test1_Song_SongLibrary.copyConstructors",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Test2_SongLibrary.performLoadAndSave",
+      "run": "cd build; ./test/runTests --gtest_filter=Test2_SongLibrary.performLoadAndSave",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Test3_SongLibrary.performSort",
+      "run": "cd build; ./test/runTests --gtest_filter=Test3_SongLibrary.performSort",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Test4_SongLibrary.performSearch",
+      "run": "cd build; ./test/runTests --gtest_filter=Test4_SongLibrary.performSearch",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Test5_SongLibrary.performInsertSongInOrder",
+      "run": "cd build; ./test/runTests --gtest_filter=Test5_SongLibrary.performInsertSongInOrder",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Test6_SongLibrary.performRemoveSong",
+      "run": "cd build; ./test/runTests --gtest_filter=Test6_SongLibrary.performRemoveSong",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "Test7_SongLibrary.performEditSong",
+      "run": "cd build; ./test/runTests --gtest_filter=Test7_SongLibrary.performEditSong",
+      "timeout": 5,
+      "points": 10
+    }
+  ]
+}
