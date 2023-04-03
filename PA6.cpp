@@ -1,6 +1,22 @@
+/*
+Name: Sam Carter
+Class: CPSC 122 Spring 2023
+Date: April 4, 2023
+Programming Assignment: PA6
+Description: This program keeps track of a song library for a user through the use of linked lists. The user can load songs, save songs, display library, sort the library, search the library, insert song int library in order, remove a song from library, edit a song or exit.
+*/
 #include "PA6.h"
 
-
+/*
+Function: displayMenu
+Date Created: NA
+Date Last Modified: NA
+Description: This function displays the menu options for the user to choose from.
+Input Parameters: NA
+Output Paramters: outputs to console menu options
+Pre: NA
+Post: outputs to console menu options
+*/
 void displayMenu() {
 	cout << endl << "Welcome to the CPSC 122 Music Manager!!" << endl;
 	cout << "Please choose from the following options: " << endl;
@@ -15,6 +31,16 @@ void displayMenu() {
 	cout << "9) Exit" << endl;
 }
 
+/*
+Function: getValidchoice()
+Date created: NA
+Date modified: NA
+Description: Determines whether or not user input is a valid input
+Input Param: NA
+Returns: Returns cout statement if input is invalid.
+Pre: Must have user input about option
+Post: returns user choice if it is acceptable
+*/
 int getValidChoice() {
 	int choice = -1;
 	string temp;
@@ -29,31 +55,41 @@ int getValidChoice() {
 	return choice;
 }
 
+/*
+Function: executeUserChoice()
+Date created: NA
+Date modified: 4/2/23
+Description: This code calls lib functions in order to execute the users decision
+Input Param: int choice, SongLibrary& lib
+Returns: Either ends program or runs user option
+Pre: Must have user input
+Post: Execute users wishes about songs
+*/
 void executeUserChoice(int choice, SongLibrary& lib) {
 	switch (choice) {
 		case 1:
-			// TODO: call a member function, something like lib.loadLibrary();
+      lib.loadLibrary();
 			break;
 		case 2:
-			// TODO: call a member function, something like lib.saveLibrary();
+			lib.saveLibrary();
 			break;
 		case 3: 
-			// TODO: call a member function, something like lib.displayLibrary();
+      lib.displayLibrary();
 			break;
 		case 4:
-			// TODO: call a member function, something like lib.sortLibrary();
+      lib.sortLibrary();
 			break;
 		case 5:
-			// TODO: call a member function, something like lib.searchLibrary();
+		 lib.searchLibrary();
 			break;
 		case 6:
-			// TODO: call a member function, something like lib.insertSongInLibraryOrder();
+      lib.insertSongInLibraryOrder();
 			break;
 		case 7:
-			// TODO: call a member function, something like lib.removeSongFromLibrary();
+		  lib.removeSongFromLibrary();
 			break;
 		case 8:
-			// TODO: call a member function, something like lib.editSongInLibrary();
+			lib.editSongInLibrary();
 			break;
 		default:
 			cout << "Unrecognized menu choice" << endl;
@@ -61,6 +97,16 @@ void executeUserChoice(int choice, SongLibrary& lib) {
 	}
 }
 
+/*
+Function: runMusicManager()
+Date created: NA
+Date modified: NA
+Description: This function executes userchoice if their decision is valid
+Input Param: NA
+Returns: Executes user choice or console statement thanking user
+Pre: The user must have given a VALID choice
+Post: The program either executes user choice or thanks them for using program
+*/
 void runMusicManager() {
 	SongLibrary lib;
 	

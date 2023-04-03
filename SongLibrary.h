@@ -1,3 +1,10 @@
+/*
+Name: Sam Carter
+Class: CPSC 122 Spring 2023
+Date: April 4, 2023
+Programming Assignment: PA6
+Description: This program keeps track of a song library for a user through the use of linked lists. The user can load songs, save songs, display library, sort the library, search the library, insert song int library in order, remove a song from library, edit a song or exit.
+*/
 #ifndef SONG_LIBRARY_H
 #define SONG_LIBRARY_H
 
@@ -27,6 +34,16 @@ class SongLibrary {
 		void performInsertSongInOrder(Song *); // NEW: replaces addSong()
 		void performRemoveSong(Song *); // UPDATED: parameter list
 		void performEditSong(Song *, string, string); // UPDATED: parameter list
+
+    void displayLibrary();
+    void insertSongInLibraryOrder();
+    void sortLibrary();
+    void loadLibrary();
+    void saveLibrary();
+    void editSongInLibrary();
+    void searchLibrary();
+    void removeSongFromLibrary();
+
 };
 
 #endif
