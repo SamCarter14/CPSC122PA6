@@ -63,7 +63,7 @@ SongLibrary::~SongLibrary() {
     while(currSong != NULL){
       prevSong = currSong;
       delete currSong;
-      currSong = currSong->getNext();
+      currSong = prevSong->getNext();
     }
       head = NULL;
   }

@@ -1,14 +1,14 @@
-valgrind --leak-check=yes ./runPA6
+ valgrind --leak-check=yes ./runPA6
 valgrind: command not installed. Multiple versions of this command were found in Nix.
 Select one to run (or press Ctrl-C to cancel):
 Adding valgrind to replit.nix
 error: Could not read file replit.nix
 /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0
-==438== Memcheck, a memory error detector
-==438== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==438== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
-==438== Command: ./runPA6
-==438== 
+==1897== Memcheck, a memory error detector
+==1897== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==1897== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==1897== Command: ./runPA6
+==1897== 
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -36,9 +36,33 @@ Please choose from the following options:
 7) Remove song
 8) Edit song
 9) Exit
-Choice: 2
-Enter name of file you wish to save songs to:
-../temp.txt
+Choice: 1
+Enter the name of file you want to load:
+../library.txt
+==1897== Invalid read of size 8
+==1897==    at 0x405122: Song::getNext() (Song.cpp:213)
+==1897==    by 0x405E93: SongLibrary::setHead(Song*) (SongLibrary.cpp:102)
+==1897==    by 0x405FB5: SongLibrary::performLoad(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (SongLibrary.cpp:151)
+==1897==    by 0x4075E6: SongLibrary::loadLibrary() (SongLibrary.cpp:444)
+==1897==    by 0x404879: executeUserChoice(int, SongLibrary&) (PA6.cpp:71)
+==1897==    by 0x404961: runMusicManager() (PA6.cpp:118)
+==1897==    by 0x4044CE: main (Main.cpp:11)
+==1897==  Address 0x4d89d68 is 104 bytes inside a block of size 120 free'd
+==1897==    at 0x4849731: operator delete(void*, unsigned long) (in /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1897==    by 0x405E87: SongLibrary::setHead(Song*) (SongLibrary.cpp:101)
+==1897==    by 0x405FB5: SongLibrary::performLoad(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (SongLibrary.cpp:151)
+==1897==    by 0x4075E6: SongLibrary::loadLibrary() (SongLibrary.cpp:444)
+==1897==    by 0x404879: executeUserChoice(int, SongLibrary&) (PA6.cpp:71)
+==1897==    by 0x404961: runMusicManager() (PA6.cpp:118)
+==1897==    by 0x4044CE: main (Main.cpp:11)
+==1897==  Block was alloc'd at
+==1897==    at 0x4846F01: operator new(unsigned long) (in /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1897==    by 0x4060DB: SongLibrary::performLoad(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (SongLibrary.cpp:161)
+==1897==    by 0x4075E6: SongLibrary::loadLibrary() (SongLibrary.cpp:444)
+==1897==    by 0x404879: executeUserChoice(int, SongLibrary&) (PA6.cpp:71)
+==1897==    by 0x404961: runMusicManager() (PA6.cpp:118)
+==1897==    by 0x4044CE: main (Main.cpp:11)
+==1897== 
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -102,9 +126,141 @@ Please choose from the following options:
 7) Remove song
 8) Edit song
 9) Exit
+Choice: 2
+Enter name of file you wish to save songs to:
+../temp.txt
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
 Choice: 4
 How would you like to sort?
-artist
+artist 
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 3
+
+*****SONG LIBRARY*****
+
+1. Title: i gotta feeling
+Sang by: black eyed peas
+Genre: pop
+Rating: 5
+
+2. Title: mack the knife
+Sang by: bobby darin
+Genre: rock
+Rating: 1
+
+3. Title: the twist
+Sang by: chubby checker
+Genre: rock
+Rating: 3
+
+4. Title: shape of you
+Sang by: ed sheeran
+Genre: pop
+Rating: 4
+
+5. Title: party rock anthem
+Sang by: lmfao
+Genre: hip hop
+Rating: 4
+
+6. Title: uptown funk!
+Sang by: mark ronson
+Genre: funk
+Rating: 5
+
+7. Title: smooth
+Sang by: santana
+Genre: electronic
+Rating: 2
+
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 4
+How would you like to sort?
+title
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 3
+
+*****SONG LIBRARY*****
+
+1. Title: i gotta feeling
+Sang by: black eyed peas
+Genre: pop
+Rating: 5
+
+2. Title: mack the knife
+Sang by: bobby darin
+Genre: rock
+Rating: 1
+
+3. Title: party rock anthem
+Sang by: lmfao
+Genre: hip hop
+Rating: 4
+
+4. Title: shape of you
+Sang by: ed sheeran
+Genre: pop
+Rating: 4
+
+5. Title: smooth
+Sang by: santana
+Genre: electronic
+Rating: 2
+
+6. Title: the twist
+Sang by: chubby checker
+Genre: rock
+Rating: 3
+
+7. Title: uptown funk!
+Sang by: mark ronson
+Genre: funk
+Rating: 5
+
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -119,14 +275,11 @@ Please choose from the following options:
 9) Exit
 Choice: 5
 What attribute would you like to search by? (title, artist, genre, rating, index)
-title
-What title would you like to search for?
-smooth
-7. smooth
-santana
-electronic
-2
-
+genre
+What genre would you like to search for?
+electric disco
+Could not find song.
+Could not find song.
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -141,13 +294,13 @@ Please choose from the following options:
 9) Exit
 Choice: 6
 Enter name of song:
-hello
+haha
 Enter artist of song:
 sam
 Enter genre of song:
-jazz
+electric disco
 Enter rating for song:
-5
+4
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -160,11 +313,78 @@ Please choose from the following options:
 7) Remove song
 8) Edit song
 9) Exit
-Choice: 7
+Choice: 5
 What attribute would you like to search by? (title, artist, genre, rating, index)
-title
-What title would you like to search for?
-smooth
+genre
+What genre would you like to search for?
+electric disco
+1. haha
+sam
+electric disco
+4
+
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 8
+What attribute would you like to search by? (title, artist, genre, rating, index)
+genre
+What genre would you like to search for?
+electric disco
+Which attribute would you like to change?(title, artist, genre or rating):
+genre
+And what would you like to change the genre to?
+country
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 5
+What attribute would you like to search by? (title, artist, genre, rating, index)
+genre
+What genre would you like to search for?
+electric disco
+Could not find song.
+Could not find song.
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 5
+What attribute would you like to search by? (title, artist, genre, rating, index)
+genre
+What genre would you like to search for?
+country
+1. haha
+sam
+country
+4
+
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -181,11 +401,47 @@ Choice: 8
 What attribute would you like to search by? (title, artist, genre, rating, index)
 title
 What title would you like to search for?
-hello
+haha
 Which attribute would you like to change?(title, artist, genre or rating):
+title
+And what would you like to change the title to?
+lol
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 7
+What attribute would you like to search by? (title, artist, genre, rating, index)
+title
+What title would you like to search for?
+lol
+
+Welcome to the CPSC 122 Music Manager!!
+Please choose from the following options: 
+1) Load library
+2) Store library
+3) Display library
+4) Sort library
+5) Search library
+6) Insert song in order
+7) Remove song
+8) Edit song
+9) Exit
+Choice: 5
+What attribute would you like to search by? (title, artist, genre, rating, index)
 genre
-And what would you like to change the genre to?
-blues
+What genre would you like to search for?
+country
+Could not find song.
+Could not find song.
 
 Welcome to the CPSC 122 Music Manager!!
 Please choose from the following options: 
@@ -200,31 +456,31 @@ Please choose from the following options:
 9) Exit
 Choice: 9
 Thanks for you using the CPSC 122 Music Manager!!
-==438== Invalid read of size 8
-==438==    at 0x405122: Song::getNext() (Song.cpp:89)
-==438==    by 0x405DEF: SongLibrary::~SongLibrary() (SongLibrary.cpp:32)
-==438==    by 0x40499E: runMusicManager() (PA6.cpp:76)
-==438==    by 0x4044CE: main (Main.cpp:4)
-==438==  Address 0x4d8c208 is 104 bytes inside a block of size 120 free'd
-==438==    at 0x4849731: operator delete(void*, unsigned long) (in /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==438==    by 0x405DE3: SongLibrary::~SongLibrary() (SongLibrary.cpp:31)
-==438==    by 0x40499E: runMusicManager() (PA6.cpp:76)
-==438==    by 0x4044CE: main (Main.cpp:4)
-==438==  Block was alloc'd at
-==438==    at 0x4846F01: operator new(unsigned long) (in /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==438==    by 0x4065FA: SongLibrary::performSort() (SongLibrary.cpp:115)
-==438==    by 0x407504: SongLibrary::sortLibrary() (SongLibrary.cpp:269)
-==438==    by 0x4048A9: executeUserChoice(int, SongLibrary&) (PA6.cpp:44)
-==438==    by 0x404961: runMusicManager() (PA6.cpp:72)
-==438==    by 0x4044CE: main (Main.cpp:4)
-==438== 
-==438== 
-==438== HEAP SUMMARY:
-==438==     in use at exit: 0 bytes in 0 blocks
-==438==   total heap usage: 35 allocs, 35 frees, 94,153 bytes allocated
-==438== 
-==438== All heap blocks were freed -- no leaks are possible
-==438== 
-==438== For lists of detected and suppressed errors, rerun with: -s
-==438== ERROR SUMMARY: 7 errors from 1 contexts (suppressed: 0 from 0)
-~/PA6/pa6-SamCarter14/build$ 
+==1897== Invalid read of size 8
+==1897==    at 0x405122: Song::getNext() (Song.cpp:213)
+==1897==    by 0x405DEF: SongLibrary::~SongLibrary() (SongLibrary.cpp:66)
+==1897==    by 0x40499E: runMusicManager() (PA6.cpp:122)
+==1897==    by 0x4044CE: main (Main.cpp:11)
+==1897==  Address 0x4d8f1e8 is 104 bytes inside a block of size 120 free'd
+==1897==    at 0x4849731: operator delete(void*, unsigned long) (in /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1897==    by 0x405DE3: SongLibrary::~SongLibrary() (SongLibrary.cpp:65)
+==1897==    by 0x40499E: runMusicManager() (PA6.cpp:122)
+==1897==    by 0x4044CE: main (Main.cpp:11)
+==1897==  Block was alloc'd at
+==1897==    at 0x4846F01: operator new(unsigned long) (in /nix/store/qmdp39yy74091vlrvrj39c8rzbslhci8-valgrind-3.19.0/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1897==    by 0x4065FA: SongLibrary::performSort() (SongLibrary.cpp:211)
+==1897==    by 0x407504: SongLibrary::sortLibrary() (SongLibrary.cpp:428)
+==1897==    by 0x4048A9: executeUserChoice(int, SongLibrary&) (PA6.cpp:80)
+==1897==    by 0x404961: runMusicManager() (PA6.cpp:118)
+==1897==    by 0x4044CE: main (Main.cpp:11)
+==1897== 
+==1897== 
+==1897== HEAP SUMMARY:
+==1897==     in use at exit: 0 bytes in 0 blocks
+==1897==   total heap usage: 60 allocs, 60 frees, 104,698 bytes allocated
+==1897== 
+==1897== All heap blocks were freed -- no leaks are possible
+==1897== 
+==1897== For lists of detected and suppressed errors, rerun with: -s
+==1897== ERROR SUMMARY: 14 errors from 2 contexts (suppressed: 0 from 0)
+ 
